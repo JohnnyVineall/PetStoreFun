@@ -16,22 +16,6 @@ class petStoreSimulation extends Simulation {
   val BaseURL = Environment.baseUrl
 
 
-  val testType = scala.util.Properties.envOrElse("TEST_TYPE", "perftest")
-
-  //set the environment based on the test type
-  val environment = testType match {
-    case "perftest" => "perftest"
-    case "pipeline" => "perftest"
-    case _ => "**INVALID**"
-  }
-
-  /* ******************************** */
-
-  /* ADDITIONAL COMMAND LINE ARGUMENT OPTIONS */
-  val debugMode = System.getProperty("debug", "off") //runs a single user e.g. ./gradle gatlingRun -Ddebug=on (default: off)
-  val env = System.getProperty("env", environment) //manually override the environment aat|perftest e.g. ./gradle gatlingRun -Denv=aat
-  /* ******************************** */
-
 
       val httpProtocol = http
         .baseUrl(BaseURL)
@@ -55,8 +39,8 @@ class petStoreSimulation extends Simulation {
 
 
   setUp(
-    petStoreSimulation.inject(nothingFor(1),rampUsers(1) during (2700))
-  ).protocols(httpProtocol)
+    petStoreSimulation.inject(rampUsers(1) during (300))
+  ).protocols(httpProtocol).maxDuration(600)
 
 }
 

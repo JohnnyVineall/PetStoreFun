@@ -21,8 +21,5 @@ object Headers {
     "upgrade-insecure-requests" -> "1")
 
 
-  val postHeader = Map(
-    "content-type" -> "application/x-www-form-urlencoded")
-
 
 }

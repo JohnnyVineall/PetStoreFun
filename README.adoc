@@ -1,5 +1,7 @@
 ### PetStoreFun Gatling Performance Tests
 
+Before starting please create a new Branch.
+
 *** INSTRUCTIONS:
  1. Enter the Store
  2. Click on the 'Fish' option and add a 'Goldfish' to your basket

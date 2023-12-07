@@ -39,8 +39,8 @@ class petStoreSimulation extends Simulation {
 
 
   setUp(
-    petStoreSimulation.inject(rampUsers(1) during (300))
-  ).protocols(httpProtocol).maxDuration(600)
+    petStoreSimulation.inject(rampUsers(10) during (100))
+  ).protocols(httpProtocol).maxDuration(300)
 
 }
 

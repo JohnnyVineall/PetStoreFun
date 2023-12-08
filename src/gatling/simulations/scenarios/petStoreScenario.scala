@@ -181,6 +181,18 @@ object petStoreScenario {
     .pause(ThinkTime)
 
     /*======================================================================================
+    * Proceed to Checkout
+    ======================================================================================*/
+
+    .group("PS_180_ProceedToCheckout") {
+      exec(http("PS_180_005_ProceedToCheckout")
+        .get(BaseURL + "/actions/Order.action?newOrderForm=")
+        .headers(Headers.navigationHeader)
+        .check(substring("You must sign on before attempting to check out.")))
+    }
+    .pause(ThinkTime)
+
+    /*======================================================================================
     * Enter Account info
     ======================================================================================*/
 
